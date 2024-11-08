@@ -38,18 +38,23 @@ class _BangunDatarState extends State<BangunDatar> {
           children: [
             TextField(
               controller: _controllerAlas,
-              decoration: const InputDecoration(labelText: 'Masukkan alas piramida'),
+              decoration:
+                  const InputDecoration(labelText: 'Masukkan alas piramida'),
               keyboardType: TextInputType.number,
             ),
             TextField(
               controller: _controllerTinggi,
-              decoration: const InputDecoration(labelText: 'Masukkan tinggi piramida'),
+              decoration:
+                  const InputDecoration(labelText: 'Masukkan tinggi piramida'),
               keyboardType: TextInputType.number,
             ),
             const SizedBox(height: 16),
-            ElevatedButton(onPressed: hitungVolume, child: const Text('Hitung Volume')),
+            ElevatedButton(
+                onPressed: hitungVolume, child: const Text('Hitung Volume')),
             const SizedBox(height: 16),
-            ElevatedButton(onPressed: hitungKeliling, child: const Text('Hitung Keliling')),
+            ElevatedButton(
+                onPressed: hitungKeliling,
+                child: const Text('Hitung Keliling')),
             const SizedBox(height: 16),
             Text('Volume Piramida: $_volume'),
             const SizedBox(height: 16),

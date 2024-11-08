@@ -11,7 +11,8 @@ class Profil extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(radius: 50, backgroundImage: AssetImage('assets/image.png')),
+            CircleAvatar(
+                radius: 50, backgroundImage: AssetImage('assets/image.png')),
             SizedBox(height: 20),
             Text('Nama: Bagas Luqman Nur Hakim'),
             Text('NIM: 124220004'),

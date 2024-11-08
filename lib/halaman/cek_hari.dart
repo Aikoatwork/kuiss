@@ -13,9 +13,18 @@ class _CekHariState extends State<CekHari> {
 
   void cekHari() {
     int nomor = int.parse(_controller.text);
-    List<String> hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+    List<String> hari = [
+      'Senin',
+      'Selasa',
+      'Rabu',
+      'Kamis',
+      'Jumat',
+      'Sabtu',
+      'Minggu'
+    ];
     setState(() {
-      _hari = (nomor >= 1 && nomor <= 7) ? hari[nomor - 1] : 'Nomor tidak valid';
+      _hari =
+          (nomor >= 1 && nomor <= 7) ? hari[nomor - 1] : 'Nomor tidak valid';
     });
   }
 
@@ -29,7 +38,8 @@ class _CekHariState extends State<CekHari> {
           children: [
             TextField(
               controller: _controller,
-              decoration: const InputDecoration(labelText: 'Masukkan nomor (1-7)'),
+              decoration:
+                  const InputDecoration(labelText: 'Masukkan nomor (1-7)'),
               keyboardType: TextInputType.number,
             ),
             const SizedBox(height: 16),

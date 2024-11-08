@@ -13,11 +13,10 @@ class _KonversiWaktuState extends State<KonversiWaktu> {
   String? _wib;
   String? _wita;
   String? _wit;
-  String _selectedPeriod = 'AM'; 
-  String _selectedFormat = '12'; 
+  String _selectedPeriod = 'AM';
+  String _selectedFormat = '12';
 
   void konversiWaktu() {
-    
     final input = _controller.text;
     final regex12Jam = RegExp(r'^(0?[1-9]|1[0-2]):[0-5][0-9]$');
     final regex24Jam = RegExp(r'^(0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$');
@@ -33,7 +32,6 @@ class _KonversiWaktuState extends State<KonversiWaktu> {
     }
 
     try {
-      
       DateTime waktu;
       if (_selectedFormat == '12') {
         final inputFormat = DateFormat("hh:mm a");
@@ -43,13 +41,12 @@ class _KonversiWaktuState extends State<KonversiWaktu> {
         waktu = inputFormat.parse(input);
       }
 
-      
       final wib = waktu;
       final wita = wib.add(const Duration(hours: 1));
       final wit = wib.add(const Duration(hours: 2));
 
-      
-      final outputFormat = _selectedFormat == '12' ? DateFormat("hh:mm a") : DateFormat("HH:mm");
+      final outputFormat =
+          _selectedFormat == '12' ? DateFormat("hh:mm a") : DateFormat("HH:mm");
       setState(() {
         _wib = "${outputFormat.format(wib)} WIB";
         _wita = "${outputFormat.format(wita)} WITA";
@@ -73,7 +70,6 @@ class _KonversiWaktuState extends State<KonversiWaktu> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            
             Row(
               children: [
                 const Text("Pilih format jam: "),
@@ -88,15 +84,13 @@ class _KonversiWaktuState extends State<KonversiWaktu> {
                   onChanged: (newValue) {
                     setState(() {
                       _selectedFormat = newValue!;
-                      _selectedPeriod = 'AM'; 
+                      _selectedPeriod = 'AM';
                     });
                   },
                 ),
               ],
             ),
             const SizedBox(height: 16),
-
-            
             Row(
               children: [
                 Expanded(
@@ -104,7 +98,9 @@ class _KonversiWaktuState extends State<KonversiWaktu> {
                     controller: _controller,
                     decoration: InputDecoration(
                       labelText: 'Masukkan waktu (hh:mm)',
-                      hintText: _selectedFormat == '12' ? 'Contoh: 11:10' : 'Contoh: 23:10',
+                      hintText: _selectedFormat == '12'
+                          ? 'Contoh: 11:10'
+                          : 'Contoh: 23:10',
                     ),
                     keyboardType: TextInputType.datetime,
                   ),
@@ -129,7 +125,6 @@ class _KonversiWaktuState extends State<KonversiWaktu> {
               ],
             ),
             const SizedBox(height: 16),
-
             ElevatedButton(
               onPressed: konversiWaktu,
               child: const Text('Konversi Waktu'),
