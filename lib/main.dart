@@ -28,7 +28,7 @@ class Main extends StatefulWidget {
 
 class _MainState extends State<Main> {
   int _currentIndex = 0;
-  final List<Widget> _children = [const Home(), const Profile()];
+  final List<Widget> _children = [const Home(), const Profil()];
 
   void onTapped(int index) {
     setState(() {
@@ -45,7 +45,7 @@ class _MainState extends State<Main> {
         onTap: onTapped,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profil'),
         ],
       ),
     );

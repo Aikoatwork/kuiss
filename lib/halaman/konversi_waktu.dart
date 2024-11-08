@@ -13,11 +13,11 @@ class _KonversiWaktuState extends State<KonversiWaktu> {
   String? _wib;
   String? _wita;
   String? _wit;
-  String _selectedPeriod = 'AM'; // Default to AM
-  String _selectedFormat = '12'; // Default to 12 jam
+  String _selectedPeriod = 'AM'; 
+  String _selectedFormat = '12'; 
 
   void konversiWaktu() {
-    // Validasi input dengan format 12 jam (HH:mm) atau 24 jam (HH:mm) sesuai pilihan
+    
     final input = _controller.text;
     final regex12Jam = RegExp(r'^(0?[1-9]|1[0-2]):[0-5][0-9]$');
     final regex24Jam = RegExp(r'^(0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$');
@@ -33,7 +33,7 @@ class _KonversiWaktuState extends State<KonversiWaktu> {
     }
 
     try {
-      // Parsing input waktu berdasarkan format jam yang dipilih
+      
       DateTime waktu;
       if (_selectedFormat == '12') {
         final inputFormat = DateFormat("hh:mm a");
@@ -43,12 +43,12 @@ class _KonversiWaktuState extends State<KonversiWaktu> {
         waktu = inputFormat.parse(input);
       }
 
-      // Menghitung perbedaan waktu dalam zona waktu Indonesia
+      
       final wib = waktu;
       final wita = wib.add(const Duration(hours: 1));
       final wit = wib.add(const Duration(hours: 2));
 
-      // Format keluaran sesuai dengan format jam yang dipilih
+      
       final outputFormat = _selectedFormat == '12' ? DateFormat("hh:mm a") : DateFormat("HH:mm");
       setState(() {
         _wib = "${outputFormat.format(wib)} WIB";
@@ -73,7 +73,7 @@ class _KonversiWaktuState extends State<KonversiWaktu> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Dropdown untuk memilih format waktu 12/24 jam
+            
             Row(
               children: [
                 const Text("Pilih format jam: "),
@@ -88,7 +88,7 @@ class _KonversiWaktuState extends State<KonversiWaktu> {
                   onChanged: (newValue) {
                     setState(() {
                       _selectedFormat = newValue!;
-                      _selectedPeriod = 'AM'; // Reset ke AM jika format diubah
+                      _selectedPeriod = 'AM'; 
                     });
                   },
                 ),
@@ -96,7 +96,7 @@ class _KonversiWaktuState extends State<KonversiWaktu> {
             ),
             const SizedBox(height: 16),
 
-            // Input waktu dan dropdown AM/PM jika format 12 jam
+            
             Row(
               children: [
                 Expanded(
